@@ -87,42 +87,39 @@ router.post('/signup', (req, res) => {
 });
 
 
-// A GET method carries the request parameter appended in the URL string, whereas a POST method carries the request parameter in req.body, which makes it a more secure way of transferring data from the client to the server. Remember, the password is still in plaintext, which makes this transmission process a vulnerable link in the chain.
 router.post('/login', (req, res) => {
-    // expects {email: 'lernantino@gmail.com', password: 'password1234'}
-    // We queried the User table using the findOne() method for the email entered by the user and assigned it to req.body.email.
+
     User.findOne({
         where: {
             email: req.body.email
         }
-    }).then(dbUserData => {
-        if (!dbUserData) {
-            // If the user with that email was not found, a message is sent back as a response to the client. However, if the email was found in the database, the next step will be to verify the user's identity by matching the password from the user and the hashed password in the database. This will be done in the Promise of the query.
-            res.status(400).json({ message: 'No user with that email address!' });
-            return;
-        }
-        // add comment syntax in front of this line in the .then()
-        // res.json({ user: dbUserData }
+    })
+        .then(dbUserData => {
+            if (!dbUserData) {
 
-        // Verify user
-        const validPassword = dbUserData.checkPassword(req.body.password);
-        // In the conditional statement above, if the match returns a false value, an error message is sent back to the client, and the return statement exits out of the function immediately.
-        if (!validPassword) {
-            res.status(400).json({ message: 'Incorrect password!' });
-            return;
-        }
-        // We want to make sure the session is created before we send the response back, so we're wrapping the variables in a callback. The req.session.save() method will initiate the creation of the session and then run the callback function once complete.
-        req.session.save(() => {
-            // declare session variables
-            req.session.user_id = dbUserData.id;
-            req.session.username = dbUserData.username;
-            req.session.loggedIn = true;
-            //   run the callback function
-            //   However, if there is a match, the conditional statement block is ignored, and a response with the data and the message "You are now logged in." is sent instead. 13.2
+                res.status(400).json({ message: 'No user with that email address!' });
+                return;
+            }
 
-            res.json({ user: dbUserData, message: 'You are now logged in!' });
+            // Verify user
+            const validPassword = dbUserData.checkPassword(req.body.password);
+            if (!validPassword) {
+                res.status(400).json({ message: 'Incorrect password!' });
+                return;
+            }
+            req.session.save(() => {
+                // declare session variables
+                req.session.user_id = dbUserData.id;
+                req.session.username = dbUserData.username;
+                req.session.loggedIn = true;
+
+                res.json({ user: dbUserData, message: 'You are now logged in!' });
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
         });
-    });
 });
 
 //  /logout route
@@ -145,7 +142,7 @@ router.post('/logout', withAuth, (req, res) => {
 
 // PUT /api/users/1
 // UPDATE A USER
-router.put('/:id', withAuth ,(req, res) => {
+router.put('/:id', withAuth, (req, res) => {
 
     User.update(req.body, {
         individualHooks: true,
