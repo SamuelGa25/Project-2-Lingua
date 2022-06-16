@@ -1,7 +1,4 @@
 const router = require('express').Router();
-
-
-
 const { Conversation, User, Message } = require('../../models');
 const withAuth = require('../../utils/auth');
 

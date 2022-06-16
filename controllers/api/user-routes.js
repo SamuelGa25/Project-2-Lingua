@@ -64,12 +64,6 @@ router.get('/:id', (req, res) => {
 // POST create a user /api/users
 // !SIGN UP
 router.post('/signup', (req, res) => {
-    //     INSERT INTO users
-    //   (username, email, password)
-    // VALUES
-    //   ("Lernantino", "lernantino@gmail.com", "password1234");
-
-    // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
     User.create({
         username: req.body.username,
         email: req.body.email,
