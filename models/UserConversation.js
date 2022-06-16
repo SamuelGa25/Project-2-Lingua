@@ -13,6 +13,12 @@ class UserConversation extends Model { }
 UserConversation.init(
     // TABLE COLUMN DEFINITIONS GO HERE
     {
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
+        },
         conversation_id: {
             type: DataTypes.INTEGER,
             references: {
