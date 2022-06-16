@@ -24,6 +24,7 @@ router.get('/', (req, res) => {
 
 // GET /api/users/1
 router.get('/:id', (req, res) => {
+    console.log('==================');
     // SELECT * FROM users WHERE id = 1
     User.findOne({
         // not return the password column
@@ -61,7 +62,8 @@ router.get('/:id', (req, res) => {
 });
 
 // POST create a user /api/users
-router.post('/', (req, res) => {
+// !SIGN UP
+router.post('/signup', (req, res) => {
     //     INSERT INTO users
     //   (username, email, password)
     // VALUES
@@ -75,7 +77,6 @@ router.post('/', (req, res) => {
     })
         // This gives our server easy access to the user's user_id, username, and a Boolean describing whether or not the user is logged in.
         .then(dbUserData => {
-            // We want to make sure the session is created before we send the response back, so we're wrapping the variables in a callback. The req.session.save() method will initiate the creation of the session and then run the callback function once complete.
             req.session.save(() => {
                 // declare session variables
                 req.session.user_id = dbUserData.id;
@@ -91,7 +92,6 @@ router.post('/', (req, res) => {
         });
 });
 
-// In this case, a login route could've used the GET method since it doesn't actually create or insert anything into the database. But there is a reason why a POST is the standard for the login that's in process.
 
 // A GET method carries the request parameter appended in the URL string, whereas a POST method carries the request parameter in req.body, which makes it a more secure way of transferring data from the client to the server. Remember, the password is still in plaintext, which makes this transmission process a vulnerable link in the chain.
 router.post('/login', (req, res) => {
@@ -130,18 +130,19 @@ router.post('/login', (req, res) => {
         });
     });
 });
+
 //  /logout route
+// LOGOUT A USER
 router.post('/logout', withAuth, (req, res) => {
-    // to delete the session
     // if user logged in and session has it to true, delete the session
     if (req.session.loggedIn) {
+        // to delete the session
         req.session.destroy(() => {
             // 204 No Content
             res.status(204).end();
         });
     }
     else {
-        // session not loggedIn 
         res.status(404).end();
     }
 });
@@ -149,7 +150,8 @@ router.post('/logout', withAuth, (req, res) => {
 
 
 // PUT /api/users/1
-router.put('/:id', withAuth, (req, res) => {
+// UPDATE A USER
+router.put('/:id', withAuth ,(req, res) => {
 
     User.update(req.body, {
         individualHooks: true,
@@ -171,6 +173,7 @@ router.put('/:id', withAuth, (req, res) => {
 });
 
 // DELETE /api/users/1
+// DELETE A USER
 router.delete('/:id', withAuth, (req, res) => {
     User.destroy({
         where: {
