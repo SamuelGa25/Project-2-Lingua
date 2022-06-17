@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
         console.log(users);
         res.render('users', {
           users,
-           //  variables that are passed to view templates are automatically passed to the main layout. and to homepage template
+          loggedIn: req.session.loggedIn
         });
       })
       .catch(err => {
@@ -24,6 +24,7 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
       });
   });
+
 
   router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
@@ -33,6 +34,15 @@ router.get('/', (req, res) => {
     res.render('login');
   });
 
+
+  
+  router.get('/signup', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+      }
+    res.render('signup');
+  });
 
 
 

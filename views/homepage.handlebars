@@ -1,0 +1,22 @@
+<div class="post-list">
+    {{#each posts}}
+    <div class="col s12 m7">
+        <h2 class="header">{{title}}</h2>
+        <div class="card horizontal">
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p class="">{{content}}</p>
+                </div>
+                <div class="card-action">
+                    <span>Posted by {{user.username}} on {{format_date created_at}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    {{/each}}
+</div>

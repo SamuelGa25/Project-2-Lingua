@@ -1,33 +1,30 @@
 {{!-- sing up form --}}
-<form id="signup-form" class="col s12 login-form">
+<form id="signup-form" class="col s12">
 
-  <h3 class="text-center">Sing Up</h3>
-
-  <div class="mb-3">
-    <label class="form-label" for="username-signup">Username:</label>
-    <input class="form-control" type="text" id="username-signup" />
-  </div>
-
-  <div class="mb-3">
-    <label class="form-label" for="email-signup">Email address:</label>
-    <input class="form-control" type="email" id="email-signup" />
-  </div>
-
-  <div class="mb-3">
-    <label class="form-label" for="password-signup">Password:</label>
-    <input class="form-control" type="password" id="password-signup" />
-  </div>
-
-  <div class="mb-3">
-    <div class="container-fluid">
       <div class="row">
-        <button type="submit" class="btn btn-primary">Sign up</button>
-      </div>
+        <div class="input-field col m12 s12">
+            <label for="username-signup">Username</label>
+            <input id="username-signup" type="text" class="validate">
+        </div>
     </div>
-  </div>
 
-  <div class="mb-3">
-    <a href="/login" class="btn btn-secondary">Login</a>
+    <div class="row">
+        <div class="input-field col m12 s12">
+            <label for="email-signup">Email</label>
+            <input id="email-signup" type="email" class="validate">
+        </div>
+    </div>
+
+ <div class="row">
+        <div class="input-field col m12 s12">
+            <label for="password-signup">Password</label>
+            <input id="password-signup" type="password" class="validate">
+        </div>
+    </div>
+
+  <div class="row">
+    <button class="btn waves-effect waves-light deep-purple darken-1
+ col s12" type="submit" name="action">Sign Up</button>
   </div>
 
 </form>
