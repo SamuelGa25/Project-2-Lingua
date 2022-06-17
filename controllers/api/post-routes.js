@@ -73,13 +73,14 @@ router.get('/:id', (req, res) => {
 });
 
 // POST create one post 
-router.post('/', withAuth, (req, res) => {
+router.post('/',  (req, res) => {
     // expects {title: 'Taskmaster goes public!', content: 'https://taskmaster.com/press', user_id: 1}
     Post.create({
         title: req.body.title,
         content: req.body.content,
         // if you wnat to create a new post in insomnia need to change this id to body.id
         user_id: req.session.user_id
+        // user_id: req.body.user_id
     })
         .then(dbPostData => res.json(dbPostData))
         .catch(err => {
@@ -115,7 +116,7 @@ router.put('/:id', withAuth, (req, res) => {
 });
 
 // DELETE destroy post
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     Post.destroy(
         {
             where: {

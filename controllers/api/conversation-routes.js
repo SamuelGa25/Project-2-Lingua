@@ -19,7 +19,6 @@ router.get('/', (req, res) => {
 
 // POST create one post 
 router.post('/', (req, res) => {
-    // expects {title: 'Taskmaster goes public!', content: 'https://taskmaster.com/press', user_id: 1}
     Conversation.create({
         // user_id: req.session.user_id,
         user_id: req.body.user_id,

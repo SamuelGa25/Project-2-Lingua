@@ -2,8 +2,6 @@ const router = require('express').Router();
 const { User, Conversation, Message } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-
-
 // GET /api/messages
 router.get('/', (req, res) => {
     // Access our User model and run .findAll() method)
