@@ -1,26 +1,5 @@
+{{#each posts as |post|}}
 
-    {{#each posts as |post|}}
-    {{!-- <div class="col s12 m7">
-
-        <h4 class="header">{{title}}</h4>
-
-        <div class="card horizontal">
-
-            <div class="card-stacked">
-
-                <div class="card-content">
-                    <p class="">{{content}}</p>
-                </div>
-
-                <div class="card-action teal lighten-4">
-                    <span>Posted by {{user.username}} on {{format_date created_at}}</span>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div> --}}
 {{> post-info post}}
 
-    {{/each}}
+{{/each}}

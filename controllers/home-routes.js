@@ -13,7 +13,8 @@ router.get('/', (req, res) => {
       {
         model: User,
         key: ['username']
-      }
+      },
+      
     ]
   })
     .then(dbUserData => {
