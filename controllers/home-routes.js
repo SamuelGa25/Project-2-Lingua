@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
       // pass a single post object into the homepage template
       // get method in sequelize does serialize the data like res.json did automatically in API routes.
       const posts = dbUserData.map(post => post.get({ plain: true }));
-      console.log(posts);
+      // console.log(posts);
       res.render('homepage', {
         posts,
         loggedIn: req.session.loggedIn

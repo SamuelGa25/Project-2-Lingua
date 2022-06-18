@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User } = require('../../models');
+const { Post, User, Vote, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
         // query configuration
         attributes: ['id', 'content', 'title', 'created_at'],
         // to show the last post first
-        order: [['created_at', 'DESC']], 
+        order: [['created_at', 'DESC']],
         // Notice that the include property is expressed as an array of objects. To define this object, we need a reference to the model and attributes. 
         // include: [
         //        // include the Comment model here:
@@ -73,7 +73,7 @@ router.get('/:id', (req, res) => {
 });
 
 // POST create one post 
-router.post('/',  (req, res) => {
+router.post('/', (req, res) => {
     // expects {title: 'Taskmaster goes public!', content: 'https://taskmaster.com/press', user_id: 1}
     Post.create({
         title: req.body.title,
@@ -87,6 +87,16 @@ router.post('/',  (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
+});
+
+
+router.put('/upvote',  (req, res) => {
+    Vote.create({
+        user_id: req.body.user_id,
+        post_id: req.body.post_id
+      })
+        .then(dbPostData => res.json(dbPostData))
+        .catch(err => res.json(err));
 });
 
 // PUT update one post title. not the text to update text we would need to use individualHooks: true or add content: req.body.content after title.

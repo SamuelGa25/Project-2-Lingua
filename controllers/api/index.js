@@ -12,7 +12,7 @@ const conversationRoutes = require('./conversation-routes.js');
 
 const messageRoutes = require('./message-routes.js');
 
-const userConversationRoutes = require('./user-conversation-routes.js');
+// const userConversationRoutes = require('./user-conversation-routes.js');
 
 
 
@@ -24,6 +24,6 @@ router.use('/posts', postRoutes);
 router.use('/comments', commentRoutes);
 router.use('/messages', messageRoutes);
 router.use('/conversations', conversationRoutes);
-router.use('/user-conversations', userConversationRoutes);
+// router.use('/user-conversations', userConversationRoutes);
 
 module.exports = router;

@@ -78,6 +78,44 @@ Post.belongsTo(User, {
     foreignKey: 'conversation_id',
     onDelete: 'cascade'
   });
+
+// !UserCONV
+User.belongsToMany(Conversation, {
+  through: UserConversation,
+  as: 'active_chats',
+
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
+});
+
+Conversation.belongsToMany(User, {
+  through: UserConversation,
+  as: 'active_chats',
+  foreignKey: 'conversation_id',
+  onDelete: 'SET NULL'
+});
+
+UserConversation.belongsTo(User, {
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
+});
+
+UserConversation.belongsTo(Conversation, {
+  foreignKey: 'conversation_id',
+  onDelete: 'SET NULL'
+});
+
+User.hasMany(UserConversation, {
+  foreignKey: 'user_id'
+});
+
+Conversation.hasMany(UserConversation, {
+  foreignKey: 'conversation_id'
+});
+
+
+
+
 // !vote
   User.belongsToMany(Post, {
     through: Vote,

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Conversation, User, Message } = require('../../models');
+const { Conversation, User, Message, UserConversation } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
@@ -7,7 +7,13 @@ const withAuth = require('../../utils/auth');
 router.get('/', (req, res) => {
     console.log('=================')
     Conversation.findAll({
-
+        include: [
+            {
+                model: User,
+                attributes: ['username'],
+                through: UserConversation
+            }
+        ]
     })
         .then(dbPostData => res.json(dbPostData))
         .catch(err => {
@@ -20,8 +26,7 @@ router.get('/', (req, res) => {
 // POST create one post 
 router.post('/', (req, res) => {
     Conversation.create({
-        // user_id: req.session.user_id,
-        user_id: req.body.user_id,
+
     })
         .then(dbPostData => res.json(dbPostData))
         .catch(err => {

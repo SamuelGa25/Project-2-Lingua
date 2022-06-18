@@ -2,7 +2,7 @@
 
 // Use the proper HTTP status codes like 400, 404, and 500 to indicate errors in a request.
 const router = require('express').Router();
-const { User, Post } = require('../../models');
+const { User, Post, Comment, Vote, Message, UserConversation} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
@@ -37,15 +37,28 @@ router.get('/:id', (req, res) => {
                 model: Post,
                 attributes: ['id', 'title', 'content', 'created_at']
             },
-            //     // include the Comment model here:
-            //     {
-            //         model: Comment,
-            //         attributes: ['id', 'comment_text', 'created_at'],
-            //         include: {
-            //             model: Post,
-            //             attributes: ['title']
-            //         }
-            //     }
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'created_at'],
+                include: {
+                  model: Post,
+                  attributes: ['title']
+                }
+              },
+              {
+                model: Post,
+                attributes: ['title'],
+                through: Vote,
+                as: 'voted_posts'
+              },
+              {
+                model: Message,
+                attributes: ['id', 'content', 'created_at','conversation_id'],
+              },
+              {
+                model: UserConversation,
+                attributes: ['id','user_id','conversation_id'],
+              }
         ]
     })
         .then(dbUserData => {

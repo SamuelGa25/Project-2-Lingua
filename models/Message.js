@@ -17,7 +17,7 @@ Message.init(
             // turn on auto increment
             autoIncrement: true
         },
-        message_text: {
+        content: {
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {
@@ -27,6 +27,7 @@ Message.init(
         },
         user_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id'
@@ -34,11 +35,13 @@ Message.init(
         },
         conversation_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'conversation',
                 key: 'id'
             }
         },
+
 
     },
     {
