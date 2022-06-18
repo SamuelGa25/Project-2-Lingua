@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
             },
             {
                 model: Conversation,
-                attributes:['id','created_at']
+                attributes:['id']
             }
         ]
     })

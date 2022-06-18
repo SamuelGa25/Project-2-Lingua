@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
 // POST create one post 
 router.post('/', (req, res) => {
     Conversation.create({
-
+        title: req.body.title,
     })
         .then(dbPostData => res.json(dbPostData))
         .catch(err => {

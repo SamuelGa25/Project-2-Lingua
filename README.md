@@ -15,3 +15,5 @@ npm i jest -D
 or
 
 npm i express sequelize mysql2 dotenv bcrypt express-handlebars express-session connect-session-sequelize
+
+

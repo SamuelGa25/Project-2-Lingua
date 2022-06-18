@@ -20,47 +20,59 @@
     <header>
         <div class="navbar-fixed">
 
-        <nav>
-            <div class="nav-wrapper blue darken-4">
-                <a href="/" class="brand-logo left">Lingua</a>
-                <ul id="nav-mobile" class="right">
-                    {{#if loggedIn}}
+            <nav>
+                <div class="nav-wrapper blue darken-4">
+                    <a href="/" class="brand-logo left">Lingua</a>
+                    <ul id="nav-mobile" class="right">
+                        {{#if loggedIn}}
 
-                    <li>
-                        <a href="/dashboard" class="nav-link">Dashboard</a>
-                    </li>
+                        <li>
+                            <a href="/dashboard" class="nav-link">Dashboard</a>
+                        </li>
 
-                    <li>
-                        <a href="/" class="nav-link" id="logout">Logout</a>
-                    </li>
+                        <li>
+                            <a href="/" class="nav-link" id="logout">Logout</a>
+                        </li>
 
-                    {{else}}
+                        {{else}}
 
-                    <li>
-                        <a href="/signup" class="nav-link">Sign Up</a>
+                        <li>
+                            <a href="/signup" class="nav-link">Sign Up</a>
 
-                    </li>
+                        </li>
 
-                    <li>
-                        <a href="/login" class="nav-link">Login</a>
-                    </li>
+                        <li>
+                            <a href="/login" class="nav-link">Login</a>
+                        </li>
 
-                    {{/if}}
+                        {{/if}}
 
-                </ul>
-            </div>
-        </nav>
+                    </ul>
+                </div>
+            </nav>
 
         </div>
     </header>
 
     <main class="container">
+
+
+
         {{{body}}}
+
+
     </main>
 
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
     {{/if}}
+
+
+
+
+
+
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"
         integrity="sha512-m2PhLxj2N91eYrIGU2cmIu2d0SkaE4A14bCjVb9zykvp6WtsdriFCiXQ/8Hdj0kssUB/Nz0dMBcoLsJkSCto0Q=="

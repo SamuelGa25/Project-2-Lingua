@@ -13,7 +13,13 @@ Conversation.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
+        },
+        title: {
+            // needs to be an array
+            type: DataTypes.TEXT,
+            allowNull: false,
         }
+
     },
     // TABLE CONFIGURATION OPTIONS GO HERE (https://sequelize.org/v5/manual/models-definition.html#configuration))
     {
