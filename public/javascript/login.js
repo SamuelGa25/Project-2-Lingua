@@ -15,6 +15,9 @@ async function loginFormHandler(event) {
       });
   
       if (response.ok) {
+        console.log('success');
+        // page not updated with loddegIn result until refreshed.
+        // TODO ask if it possible to do without doing it by hand.
         document.location.replace('/');
       } else {
         alert("Failed to log in: " + response.statusText);

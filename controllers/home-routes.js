@@ -18,10 +18,10 @@ router.get('/', (req, res) => {
 
     ]
   })
-    .then(dbUserData => {
+    .then(dbPostData => {
       // pass a single post object into the homepage template
       // get method in sequelize does serialize the data like res.json did automatically in API routes.
-      const posts = dbUserData.map(post => post.get({ plain: true }));
+      const posts = dbPostData.map(post => post.get({ plain: true }));
       // console.log(posts);
       res.render('homepage', {
         posts,
@@ -40,7 +40,9 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
-  res.render('login');
+  res.render('login', {
+    loggedIn: req.session.loggedIn
+  });
 });
 
 
@@ -50,7 +52,41 @@ router.get('/signup', (req, res) => {
     res.redirect('/');
     return;
   }
-  res.render('signup');
+  res.render('signup', {
+    loggedIn: req.session.loggedIn
+  });
+});
+
+
+
+router.get('/chat', (req, res) => {
+  res.render('chat', {
+    loggedIn: req.session.loggedIn
+  })
+});
+
+
+
+router.get('/find-friends', (req, res) => {
+
+
+  User.findAll({
+    order: [['id', 'DESC']]
+  })
+    .then(dbUserData => {
+      // pass a single user object into the homepage template
+      // get method in sequelize does serialize the data like res.json did automatically in API routes.
+      const users = dbUserData.map(user => user.get({ plain: true }));
+      // console.log(users);
+      res.render('find-friends', {
+        users,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 
