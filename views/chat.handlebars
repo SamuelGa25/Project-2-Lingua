@@ -1,0 +1,35 @@
+<h2>chat</h2>
+
+     <div class="headerBar">
+                <div class="user-photo"><img src="Images/ana.JPG"></div>
+                <p class="title">Ana Datanautix</p>
+        </div>
+        
+        <div class="chatbox">
+
+            <div class="chatlogs">
+            
+                <div class="chat friend">
+                    <div class="user-photo"><img src="Images/ana.JPG"></div>
+                    <p class="chat-message">Hello!</p>
+                </div>
+
+                <div class="chat friend" id="loadingGif" style="display: none;">
+                    <div class="user-photo"><img src="Images/ana.JPG"></div>
+                    <div class="gif"><img src="Images/loading.gif"></div>
+                </div>
+
+            </div>            
+        </div>
+        <div class="chat-form">
+            <div id="inputDiv">
+                <div id="buttonDiv"></div>
+                <textarea class="input" placeholder="Message" rows="1" data-min-rows='1'></textarea>
+            </div>
+            <div id="chat-form-buttons">
+                <input type ="image"id="rec" src="Images/microphone.png">
+                <input type="image" src="Images/keyboard.png" id="switchInputType"/>
+            </div>
+        </div>
+
+        <script src="/javascript/chat.js"></script>

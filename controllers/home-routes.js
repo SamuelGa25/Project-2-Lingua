@@ -7,16 +7,15 @@ const { User, Post, Comment, Message, Conversation, Vote } = require('../models'
 // display all users.
 router.get('/', (req, res) => {
   Post.findAll({
-    
+
     attributes: ['id', 'title', 'content', 'created_at', 'updated_at'],
-    attributes: {exclude: ['password']},
     order: [['created_at', 'DESC']],
     include: [
       {
         model: User,
         key: ['username']
       },
-      
+
     ]
   })
     .then(dbUserData => {
@@ -53,6 +52,7 @@ router.get('/signup', (req, res) => {
   }
   res.render('signup');
 });
+
 
 // to get a single post 
 router.get('/post/:id', (req, res) => {
