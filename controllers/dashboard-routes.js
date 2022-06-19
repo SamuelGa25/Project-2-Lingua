@@ -40,11 +40,6 @@ router.get('/new-post-page', (req, res) => {
   })
 });
 
-router.get('/chat', (req, res) => {
-  res.render('chat', {
-    loggedIn: req.session.loggedIn
-  })
-});
 
 // Get route for edit/:id
 router.get('/edit/:id', withAuth, (req, res) => {

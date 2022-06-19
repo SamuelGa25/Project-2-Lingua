@@ -24,6 +24,16 @@ User.init(
             // turn on auto increment
             autoIncrement: true
         },
+        native_language: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue: 'eng',
+        },
+        target_language: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue: 'eng',
+        },
         // define a username column
         username: {
             type: DataTypes.STRING,
