@@ -54,6 +54,8 @@ router.get('/signup', (req, res) => {
 });
 
 
+
+
 // to get a single post 
 router.get('/post/:id', (req, res) => {
   Post.findOne({
@@ -93,8 +95,8 @@ router.get('/post/:id', (req, res) => {
       // pass data to template
       // update it in 14.3.6 with helpers
       res.render('post-comment', {
-        post,
         //  variables that are passed to view templates are automatically passed to the main layout. 
+        post,
         loggedIn: req.session.loggedIn
       });
     })

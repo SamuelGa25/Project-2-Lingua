@@ -2,7 +2,7 @@
 
 // Use the proper HTTP status codes like 400, 404, and 500 to indicate errors in a request.
 const router = require('express').Router();
-const { User, Post, Comment, Vote, Message, UserConversation} = require('../../models');
+const { User, Post, Comment, Vote, Message} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
@@ -76,7 +76,8 @@ router.post('/', (req, res) => {
     User.create({
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        native_language: req.body.native_language,
     })
         // This gives our server easy access to the user's user_id, username, and a Boolean describing whether or not the user is logged in.
         .then(dbUserData => {

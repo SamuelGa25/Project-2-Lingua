@@ -59,9 +59,10 @@ router.post('/', (req, res) => {
     Message.create({
         content: req.body.content,
         // use the id from the session
-        // user_id: req.session.user_id,
-        user_id: req.body.user_id,
+        user_id: req.session.user_id,
+        // user_id: req.body.user_id,
         conversation_id: req.body.conversation_id
+        
     })
         .then(dbCommentData => res.json(dbCommentData))
         .catch(err => {
