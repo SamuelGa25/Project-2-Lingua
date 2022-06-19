@@ -54,10 +54,6 @@ router.get('/:id', (req, res) => {
               {
                 model: Message,
                 attributes: ['id', 'content', 'created_at','conversation_id'],
-              },
-              {
-                model: UserConversation,
-                attributes: ['id','user_id','conversation_id'],
               }
         ]
     })
