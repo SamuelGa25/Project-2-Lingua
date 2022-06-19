@@ -155,6 +155,7 @@ router.post('/logout', withAuth, (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
 
     User.update(req.body, {
+        // lets us update by a value.
         individualHooks: true,
         where: {
             id: req.params.id

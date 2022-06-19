@@ -7,6 +7,14 @@ const withAuth = require('../../utils/auth');
 router.get('/', (req, res) => {
     console.log('=================')
     Conversation.findAll({
+        include:[
+            {
+                model: Message,
+                include: [{
+                    model: User
+                }]
+            }
+        ]
     })
         .then(dbPostData => res.json(dbPostData))
         .catch(err => {

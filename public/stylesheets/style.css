@@ -10,7 +10,7 @@ form {
   margin-top: 2rem;
 }
 
-#btn-new-post, #delete-post-btn {
+#btn-new-post, #delete-post-btn, .update-btn {
   margin-top: 1rem;
 }
 

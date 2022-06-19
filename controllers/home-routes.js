@@ -59,11 +59,11 @@ router.get('/signup', (req, res) => {
 
 
 
-router.get('/chat', (req, res) => {
-  res.render('chat', {
-    loggedIn: req.session.loggedIn
-  })
-});
+// router.get('/chat', (req, res) => {
+//   res.render('chat', {
+//     loggedIn: req.session.loggedIn
+//   })
+// });
 
 
 
@@ -89,7 +89,39 @@ router.get('/find-friends', (req, res) => {
     });
 });
 
+router.get('/account', (req, res) => {
 
+
+  User.findOne({
+    where: {
+      id: req.session.user_id
+    }
+  }).then(dbUserData => {
+    const user = dbUserData.get({ plain: true })
+    res.render('account', {
+      user,
+      loggedIn: req.session.loggedIn
+
+    })
+  })
+});
+
+router.get('/account/edit/:id', (req, res) => {
+
+
+  User.findOne({
+    where: {
+      id: req.session.user_id
+    }
+  }).then(dbUserData => {
+    const user = dbUserData.get({ plain: true })
+    res.render('edit-user', {
+      user,
+      loggedIn: req.session.loggedIn
+
+    })
+  })
+});
 
 
 // to get a single post 
@@ -110,12 +142,12 @@ router.get('/post/:id', (req, res) => {
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
-          attributes: ['username']
+          attributes: ['username', 'native_language']
         }
       },
       {
         model: User,
-        attributes: ['username']
+        attributes: ['username', 'native_language']
       }
     ]
   })

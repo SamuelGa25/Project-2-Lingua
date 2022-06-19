@@ -1,5 +1,9 @@
 <h2>chat</h2>
 
+<p>
+  {{conversation.id}}
+</p>
+
    {{#if loggedIn}}
 
 <form id="message-form" class="col s12">
@@ -24,9 +28,9 @@
 
 </form>
 
+
 {{/if}}
 
 {{> messages conversation.messages}}
-
 
         <script src="/javascript/chat.js"></script>
