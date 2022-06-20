@@ -14,12 +14,16 @@ form {
   margin-top: 1rem;
 }
 
-/* #comment-text {
-  background: linear-gradient(to right, rgb(225, 187, 246) , rgb(246, 195, 187)); 
+/* #comment-text, */
+ #pen-friend {
+  background: linear-gradient(to right, rgb(177, 203, 235) , rgb(155, 240, 179)); 
 }
 
-#posted-by {
+/* #posted-by {
   background: linear-gradient(to right, rgb(246, 195, 187) , rgb(208, 246, 187)); 
 } */
 
-
+body, .card {
+  font-family:  Trebuchet, sans-serif;;
+  /* background-color: #d8d6d3; */
+}
