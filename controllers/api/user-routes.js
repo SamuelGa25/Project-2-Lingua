@@ -78,6 +78,7 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password,
         native_language: req.body.native_language,
+        target_language: req.body.target_language,
     })
         // This gives our server easy access to the user's user_id, username, and a Boolean describing whether or not the user is logged in.
         .then(dbUserData => {

@@ -5,6 +5,7 @@ async function signupFormHandler(event) {
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
     const native_language = document.querySelector('#native-language-signup').value.trim();
+const target_language = document.querySelector('#target-language-signup').value.trim();
 
     if (username && email && password) {
         const response = await fetch('/api/users', {
@@ -13,7 +14,8 @@ async function signupFormHandler(event) {
                 username,
                 email,
                 password,
-                native_language
+                native_language,
+                target_language
             }),
             headers: { 'Content-Type': 'application/json' }
         });

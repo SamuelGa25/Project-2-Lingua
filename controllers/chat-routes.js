@@ -6,7 +6,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
     Message.findAll({
-        attributes: ['id', 'content', 'user_id', 'created_at', 'conversation_id'],
+        attributes: ['id', 'content', 'user_id', 'created_at'],
         order: [['created_at', 'DESC']],
         include: [
             {

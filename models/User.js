@@ -30,7 +30,7 @@ User.init(
         },
         target_language: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
         },
         // define a username column
         username: {

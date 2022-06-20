@@ -33,14 +33,14 @@ Message.init(
                 key: 'id'
             }
         },
-        conversation_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'conversation',
-                key: 'id'
-            }
-        },
+        // conversation_id: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     references: {
+        //         model: 'conversation',
+        //         key: 'id'
+        //     }
+        // },
 
 
     },

@@ -49,19 +49,19 @@ User.hasMany(Message, {
   foreignKey: 'user_id'
 });
 
-Conversation.hasMany(Message, {
-  foreignKey: 'conversation_id'
-});
+// Conversation.hasMany(Message, {
+//   foreignKey: 'conversation_id'
+// });
 
 Message.belongsTo(User, {
   foreignKey: 'user_id',
   onDelete: 'SET NULL'
 });
 
-Message.belongsTo(Conversation, {
-  foreignKey: 'conversation_id',
-  onDelete: 'cascade'
-});
+// Message.belongsTo(Conversation, {
+//   foreignKey: 'conversation_id',
+//   onDelete: 'cascade'
+// });
 
 
 
