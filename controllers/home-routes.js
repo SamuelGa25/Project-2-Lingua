@@ -12,6 +12,15 @@ router.get('/', (req, res) => {
     order: [['created_at', 'DESC']],
     include: [
       {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        order: [['created_at', 'DESC']],
+        include: {
+          model: User,
+          attributes: ['username', 'native_language']
+        }
+      },
+      {
         model: User,
         key: ['username']
       },
@@ -57,16 +66,6 @@ router.get('/signup', (req, res) => {
   });
 });
 
-
-
-// router.get('/chat', (req, res) => {
-//   res.render('chat', {
-//     loggedIn: req.session.loggedIn
-//   })
-// });
-
-
-
 router.get('/find-friends', (req, res) => {
 
 
@@ -91,7 +90,6 @@ router.get('/find-friends', (req, res) => {
 
 router.get('/account', (req, res) => {
 
-
   User.findOne({
     where: {
       id: req.session.user_id
@@ -108,7 +106,6 @@ router.get('/account', (req, res) => {
 
 router.get('/account/edit/:id', (req, res) => {
 
-
   User.findOne({
     where: {
       id: req.session.user_id
@@ -120,7 +117,10 @@ router.get('/account/edit/:id', (req, res) => {
       loggedIn: req.session.loggedIn
 
     })
-  })
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 
@@ -140,7 +140,7 @@ router.get('/post/:id', (req, res) => {
       {
         model: Comment,
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-        order:[['created_at', 'DESC']],
+        order: [['created_at', 'DESC']],
         include: {
           model: User,
           attributes: ['username', 'native_language']

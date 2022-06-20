@@ -6,10 +6,10 @@ const withAuth = require('../utils/auth');
 
 
 
-  router.get('/', (req, res) => {
-    Post.findAll({
-      where: { user_id: req.session.user_id},
-      attributes: ['id', 'title', 'content', 'created_at', 'updated_at'],
+router.get('/', (req, res) => {
+  Post.findAll({
+    where: { user_id: req.session.user_id },
+    attributes: ['id', 'title', 'content', 'created_at', 'updated_at'],
     order: [['created_at', 'DESC']],
     include: [
       {
@@ -44,43 +44,43 @@ router.get('/new-post-page', (req, res) => {
 // Get route for edit/:id
 router.get('/edit/:id', withAuth, (req, res) => {
   Post.findOne({
-      where: {
-          id: req.params.id
+    where: {
+      id: req.params.id
+    },
+    attributes: ['id', 'content', 'title', 'created_at'],
+    include: [
+      // include the Comment model here:
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        order: [['created_at', 'DESC']],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
       },
-      attributes: ['id', 'content', 'title', 'created_at'],
-      include: [
-          // include the Comment model here:
-          {
-              model: Comment,
-              attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-              order:[['created_at', 'DESC']],
-              include: {
-                  model: User,
-                  attributes: ['username']
-              }
-          },
-          {
-              model: User,
-              attributes: ['username']
-          }
-      ]
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
   })
-      .then(dbPostData => {
-          if (!dbPostData) {
-              res.status(404).json({ message: 'No post found with this id' });
-              return;
-          }
-          const post = dbPostData.get({ plain: true });
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
+      }
+      const post = dbPostData.get({ plain: true });
 
-          res.render('edit-post', {
-              post,
-              loggedIn: req.session.loggedIn
-          });
-      })
-      .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
+      res.render('edit-post', {
+        post,
+        loggedIn: req.session.loggedIn
       });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 

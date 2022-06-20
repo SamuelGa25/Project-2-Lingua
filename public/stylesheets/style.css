@@ -2,7 +2,7 @@
     background: linear-gradient(to right, rgb(5, 59, 106) , rgb(28, 93, 79)); 
   } 
 
-  .card-action {
+  .card-action, .grad {
     background: linear-gradient(to right, rgb(106, 166, 219) , rgb(117, 210, 190)); 
   }
 
@@ -14,12 +14,12 @@ form {
   margin-top: 1rem;
 }
 
-#comment-text {
+/* #comment-text {
   background: linear-gradient(to right, rgb(225, 187, 246) , rgb(246, 195, 187)); 
 }
 
 #posted-by {
   background: linear-gradient(to right, rgb(246, 195, 187) , rgb(208, 246, 187)); 
-}
+} */
 
 

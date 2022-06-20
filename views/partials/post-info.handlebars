@@ -22,8 +22,9 @@ argument_for_each_loop_set_up_in_partial }} --}}
       </div>
 
       <div class="card-action teal lighten-4">
+        
         <p class="right-align">
-          on {{format_date created_at}} | by {{user.username}} | Lang: {{user.native_language}}
+         {{comments.length}} {{format_plural "comment" comments.length}} | on {{format_date created_at}} | by {{user.username}} | Lang: {{user.native_language}}
           </p>
       </div>
 

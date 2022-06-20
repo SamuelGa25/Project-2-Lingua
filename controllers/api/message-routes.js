@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
             },
             {
                 model: Conversation,
-                attributes:['id']
+                attributes: ['id']
             }
         ]
     })
@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     // Access our User model and run .findAll() method)
     Message.findAll({
-        where: { id: req.params.id},
+        where: { id: req.params.id },
         attributes: ['id', 'content', 'user_id', 'conversation_id', 'created_at'],
         include: [
             {
@@ -39,7 +39,7 @@ router.get('/:id', (req, res) => {
             },
             {
                 model: Conversation,
-                attributes:['id','created_at']
+                attributes: ['id', 'created_at']
             }
         ]
     })
@@ -62,7 +62,7 @@ router.post('/', (req, res) => {
         user_id: req.session.user_id,
         // user_id: req.body.user_id,
         conversation_id: req.body.conversation_id
-        
+
     })
         .then(dbCommentData => res.json(dbCommentData))
         .catch(err => {

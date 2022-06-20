@@ -7,7 +7,7 @@ const withAuth = require('../../utils/auth');
 router.get('/', (req, res) => {
     console.log('=================')
     Conversation.findAll({
-        include:[
+        include: [
             {
                 model: Message,
                 include: [{
