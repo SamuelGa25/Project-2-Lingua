@@ -1,0 +1,26 @@
+.box {
+    margin: 50px 300px 50px 300px;
+    border-color: crimson;
+    border-style: outset;
+    padding: 20px;
+    
+}
+
+.flag {
+    font-size: large;
+    font-style: italic;
+    font-weight: bold;
+    background: rgb(240,7,7);
+    background: linear-gradient(90deg, rgba(240,7,7,0.8743872549019608) 44%, rgba(179,22,56,0.8715861344537815) 52%);;
+    padding-bottom: 30px;
+}
+
+* {
+    top: 0;
+}
+
+body {
+    background-image: url(./pexels-daria-shevtsova-1029806.jpg);
+    background-position: center;
+}
+  

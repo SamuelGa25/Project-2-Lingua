@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lingua</title>
+    <!--header needs to become a link to the main-site-->
+    <header class="flag"><a href="/main-site.html">Lingua</a></header>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="site-style.css">
+</head>
+<!--ignore moves everything to the right-->
+<body>
+    <div id="side-bar" style="width:25%">
+        <h3 class="side-bar-item">Navigation</h3>
+        <a href="#" id="side-bar-item">Account</a>
+        <a href="#" id="side-bar-item">Pen Pals</a>
+        <a href="#" id="side-bar-item">Take a quiz</a>
+        <a href="#" id="side-bar-item">Find new friends</a>
+    </div>
+    <!--everything needs to be moved just under the header-->
+    <div class="ignore">
+        <h2>Welcome to Lingua! Make friends and Learn a new language today</h2>
+        <p>Lingua is a new language learning program that let's you get in touch with users from around the world to learn a brand new language</p>
+    </div>
+    <div class="Friends" class="ignore">
+        <h2 class="ignore"> Your pen pals </h2>
+        <ul class="ignore-2">
+            <li class="ignore">Lisa</li>
+            <li class="ignore">Miguel</li>
+            <li class="ignore">Lexi</li>
+            <li class="ignore">Pierre</li>
+            <li class="ignore">Maria</li>
+            <li class="ignore">Jose</li>
+        </ul>
+    </div>
+    <div class="quiz" class="ignore" class="z-depth-2">
+        <h3>question</h3>
+        <h3>What is the spanish word for hello?</h3>
+        <!--questions don't go as far out as they're supposed to-->
+        <ul class="pick">
+            <!--answers should be spaced out-->
+            <li>Answer 1</li>
+            <li>Answer 2</li>
+            <li>Answer 3</li>
+            <li>Answer 4</li>
+        </ul>
+    </div>
+    <div class="ignore">
+        <h2>Find new friends</h2>
+        <input type="text" placeholder="search">
+        <button type="button" class="waves-effect waves-light btn-large">Submit</button>
+    </div>
+    <script src="site.js"></script>  
+</body>
+</html>
