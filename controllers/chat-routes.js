@@ -5,26 +5,20 @@ const withAuth = require('../utils/auth');
 
 
 router.get('/', (req, res) => {
-    Conversation.findOne({
-        where: { id: "1" },
-        attributes:['id'],
+    Message.findAll({
+        attributes: ['id', 'content', 'user_id', 'created_at', 'conversation_id'],
+        order: [['created_at', 'DESC']],
         include: [
             {
-                model: Message,
-                attributes: ['id','content','user_id','created_at','conversation_id'],
-                include:[
-                    {
-                        model: User,
-                        attributes: ['username', 'native_language']
-                    }
-                ]
+                model: User,
+                attributes: ['username', 'native_language']
             }
         ]
-    }).then(dbConversationData => {
-        const conversation = dbConversationData.get({ plain: true});
-
+    }).then(dbMessageData => {
+        const messages = dbMessageData.map(message => message.get({ plain: true}));
+        console.log(messages);
         res.render('chat', {
-            conversation,
+            messages,
             loggedIn: req.session.loggedIn
         })
 
