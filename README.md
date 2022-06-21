@@ -34,6 +34,8 @@ Project is created with:
 - Heroku
 - MySQL
 - Express JS
+- 
+
 
 ## Setup
 To open this project in vscode using git in Terminal/Git Bash:
@@ -46,8 +48,18 @@ code .
 ```
 
 ```
+npm i
+npm install express sequelize mysql2    
+npm i dotenv
+npm i bcrypt
+npm install express-handlebars
+npm i express-session connect-session-sequelize
+
+or
+
 npm i express sequelize mysql2 dotenv bcrypt express-handlebars express-session connect-session-sequelize
 ```
+
 ## Instructions
 ### When you open app you presented a main blog with all posts/ comments information/ author and date of creation.
 
