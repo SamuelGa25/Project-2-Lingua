@@ -113,4 +113,4 @@ Created by:
 - [Stepan Matysik](https://github.com/elfsvet).
 - [Samuel Garcia](https://github.com/SamuelGa25).
 - [Josiah Canada](https://github.com/Josiah-Canada).
-- [Michel Lopez]().
+
