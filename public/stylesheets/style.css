@@ -27,3 +27,13 @@ body, .card {
   font-family:  Trebuchet, sans-serif;;
   /* background-color: #d8d6d3; */
 }
+
+/* body {
+  background-image: url("/images/2.jpg");
+  background-position: center;  */
+  /* Center the image */
+  /* background-repeat: repeat;  */
+  /* Do not repeat the image */
+  /* background-size: cover; */
+   /*Resize the background image to cover the entire container */
+/* } */
