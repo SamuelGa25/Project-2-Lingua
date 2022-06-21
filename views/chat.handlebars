@@ -1,0 +1,32 @@
+<h3 class="center-align">Chat</h3>
+
+   {{#if loggedIn}}
+
+<form id="message-form" class="col s12">
+
+  <div class="row">
+
+    <div class="input-field col s12">
+
+      <textarea id="textarea1" name="message-body" class="materialize-textarea"></textarea>
+      <label for="textarea1">Leave a message here</label>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <button type="submit" class="btn waves-effect waves-light green darken-4
+ col s12" name="action">add message</button>
+
+  </div>
+
+</form>
+
+
+{{/if}}
+
+{{> messages messages}}
+
+        <script src="/javascript/chat.js"></script>

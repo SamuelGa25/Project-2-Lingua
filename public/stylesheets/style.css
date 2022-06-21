@@ -1,0 +1,39 @@
+.nav-wrapper { 
+    background: linear-gradient(to right, rgb(5, 59, 106) , rgb(28, 93, 79)); 
+  } 
+
+  .card-action, .grad {
+    background: linear-gradient(to right, rgb(106, 166, 219) , rgb(117, 210, 190)); 
+  }
+
+form {
+  margin-top: 2rem;
+}
+
+#btn-new-post, #delete-post-btn, .update-btn {
+  margin-top: 1rem;
+}
+
+/* #comment-text, */
+ #pen-friend {
+  background: linear-gradient(to right, rgb(177, 203, 235) , rgb(155, 240, 179)); 
+}
+
+/* #posted-by {
+  background: linear-gradient(to right, rgb(246, 195, 187) , rgb(208, 246, 187)); 
+} */
+
+body, .card {
+  font-family:  Trebuchet, sans-serif;;
+  /* background-color: #d8d6d3; */
+}
+
+/* body {
+  background-image: url("/images/2.jpg");
+  background-position: center;  */
+  /* Center the image */
+  /* background-repeat: repeat;  */
+  /* Do not repeat the image */
+  /* background-size: cover; */
+   /*Resize the background image to cover the entire container */
+/* } */

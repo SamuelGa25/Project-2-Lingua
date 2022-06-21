@@ -1,0 +1,40 @@
+{{!-- ! SINGLE POST INFO AND add comments --}}
+
+{{> post-info post}}
+
+{{!-- we sent it in the object with post array. --}}
+{{#if loggedIn}}
+
+<form id="comment-form" class="col s12">
+
+  <div class="row">
+
+    <div class="input-field col s12">
+
+      <textarea id="textarea1" name="comment-body" class="materialize-textarea"></textarea>
+      <label for="textarea1">Leave a comment here</label>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <button type="submit" class="btn waves-effect waves-light green darken-4
+ col s12" name="action">add comment</button>
+
+  </div>
+
+</form>
+
+{{/if}}
+{{!-- to use partial in other handlebars we can insert it by {{> name_of_the_partial
+argument_for_each_loop_set_up_in_partial }} --}}
+{{> comments post.comments}}
+
+{{!-- The front end never received a <form class="comment-form"> element, but it still loaded the JavaScript files that
+  look for those. Because comment.js is only useful to users who can see those elements (i.e., logged-in users), we
+  should just not load those resources. --}}
+  {{#if loggedIn}}
+  <script src="/javascript/comment.js"></script>
+  {{/if}}

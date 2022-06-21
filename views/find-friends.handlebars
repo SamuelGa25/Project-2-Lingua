@@ -1,0 +1,13 @@
+<h3 class="center-align">Find a pen friend within our dearest users</h3>
+{{#each users}}
+<div class="col s8 ">
+  <div id="pen-friend" class="card-panel teal">
+    <p>
+      Hi, my username is {{username}} and my email is <a class="purple-text" href="mailto:{{email}}">{{email}}</a>. I would like to learn {{target_language}} language.
+      <br /> I'm fluent in
+      <h5>{{native_language}}</h5>
+    </p>
+  </div>
+
+</div>
+{{/each}}

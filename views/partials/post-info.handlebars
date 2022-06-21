@@ -1,0 +1,35 @@
+{{!-- we would need to use just post keys. we don;t need to referencing the post object like post.post_url --}}
+{{!-- to use partial in other handlebars we can insert it by {{> name_of_the_partial
+argument_for_each_loop_set_up_in_partial }} --}}
+<article class="col s12 m7">
+
+  <div class="card-header">
+
+    <h4 class="header">
+      <a class="link" href="/post/{{id}}">{{title}}</a>
+    </h4>
+
+  </div>
+
+  <div class="card horizontal">
+
+    <div class="card-stacked">
+
+      <div class="card-content">
+        <p class="">
+          {{content}}
+        </p>
+      </div>
+
+      <div class="card-action teal lighten-4">
+        
+        <p class="right-align">
+         {{comments.length}} {{format_plural "comment" comments.length}} | on {{format_date created_at}} | by {{user.username}} | Lang: {{user.native_language}}
+          </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</article>

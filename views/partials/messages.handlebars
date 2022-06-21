@@ -1,0 +1,23 @@
+{{!-- this is an array not an object that's why we need to use this key word. array don't have keys.--}}
+<div class="row">
+  {{#each this}}
+
+  <div class="col s8 ">
+    <div id="message-text" class="card-panel blue lighten-4">
+      <p>
+        {{content}}
+      </p>
+    </div>
+
+  </div>
+
+  <div class="col s4">
+    <div id="posted-by" class="card-panel grad">
+      <p class="center-align">
+      on {{format_date created_at}} | by {{user.username}} | Lang: {{user.native_language}}
+      </p>
+    </div>
+  </div>
+
+  {{/each}}
+</div>

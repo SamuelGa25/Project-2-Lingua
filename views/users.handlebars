@@ -1,0 +1,22 @@
+<div class="user-list">
+  {{#each users}}
+  <div class="col s12 m7">
+    <h2 class="header">{{username}}</h2>
+    <div class="card horizontal">
+      <div class="card-stacked">
+        <div class="card-content">
+          <p class=""> The id of the {{username}} is {{id}} and the email is {{email}} and a password is {{password}}.</p>
+        </div>
+        <div class="card-action">
+          <a class="" href="mailto:{{email}}">{{email}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  {{/each}}
+</div>

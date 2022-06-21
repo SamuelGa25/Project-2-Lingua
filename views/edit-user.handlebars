@@ -1,0 +1,41 @@
+<form class="edit-account-form col s12" id="edit-account-form">
+
+    <div class="row">
+
+        <label for="account-username" class="form-label">Username:</label>
+        <input name="account-username" type="text" class="form-control" value="{{user.username}}" />
+
+    </div>
+
+    <div class="row">
+
+        <label for="account-email" class="form-label">Email:</label>
+        <input name="account-email" type="text" class="form-control" value="{{user.email}}" />
+
+    </div>
+
+
+    <div class="row">
+
+        <label for="account-native_language" class="form-label">Native language:</label>
+        <input name="account-native_language" type="text" class="form-control" value="{{user.native_language}}" />
+
+    </div>
+
+    
+    <div class="row">
+
+        <label for="account-target_language" class="form-label">Target language:</label>
+        <input name="account-target_language" type="text" class="form-control" value="{{user.target_language}}" />
+
+    </div>
+
+    <div class="row">
+
+        <button type="submit" class="btn waves-effect waves-light blue darken-4
+ col s12">Update account</button>
+
+    </div>
+
+</form>
+<script src="/javascript/edit-user.js"></script>

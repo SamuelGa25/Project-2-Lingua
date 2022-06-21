@@ -1,0 +1,35 @@
+<h3 class="center-align">Your Dashboard</h3>
+
+{{#if loggedIn}}
+
+<div class="container-fluid">
+
+    <div class="row">
+        <a id="btn-new-post" class="btn waves-effect waves-light green darken-4 col s12" href="/dashboard/new-post-page">+ New Post</a>
+    </div>
+
+</div>
+
+{{/if}}
+
+{{#if posts.length}}
+
+<section class="container-fluid">
+
+    <div class="">
+        {{#each posts as |post|}}
+
+
+        {{> post-info-edit post}}
+
+
+
+        {{/each}}
+
+    </div>
+
+</section>
+
+{{/if}}
+    
+

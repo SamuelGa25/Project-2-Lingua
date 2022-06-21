@@ -1,0 +1,48 @@
+<article class="">
+
+    <h4 class="center-align">Edit Your Post</h4>
+
+    <form class="edit-post-form col s12" id="edit-post-form">
+
+      <div class="row">
+
+        <div class="mb-3">
+            <label for="post-title" class="form-label">Title:</label>
+            <input name="post-title" type="text" class="form-control" value="{{post.title}}" />
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="mb-3">
+            <label for="post-content" class="form-label">Content:</label>
+            <input name="post-content" type="text" class="form-control" value="{{post.content}}" />
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="mb-3">
+            <button type="submit" class="btn waves-effect waves-light blue darken-4
+ col s12">Update post</button>
+
+            <button type="button" id="delete-post-btn" class=" btn waves-effect waves-light red darken-4
+ col s12">Delete post</button>
+        </div>
+
+      </div>
+
+    </form>
+
+</article>
+
+
+{{!-- {{> comments post.comments}} --}}
+{{!-- In the edit-post.handlebars template, include
+<script> elements for all related front - end JavaScript files, as shown in the following code: --}}
+    <script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>
+{{!--
+<script src="/javascript/comment.js"></script> --}}
