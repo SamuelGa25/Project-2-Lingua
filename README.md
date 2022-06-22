@@ -34,7 +34,6 @@ Project is created with:
 - Heroku
 - MySQL
 - Express JS
-- 
 
 
 ## Setup
