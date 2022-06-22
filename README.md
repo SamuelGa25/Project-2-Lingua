@@ -90,7 +90,7 @@ npm i express sequelize mysql2 dotenv bcrypt express-handlebars express-session 
 ![Example screenshot](./public/images/Screenshot%202022-06-20%20211347.png)
 ![Example screenshot](./public/images/Screenshot%202022-06-20%20211315.png)
 
-<!-- You can check the demo [here](). -->
+You can check the video demo [here](https://youtu.be/3J_FYBNk_Y4).
 
 ## Usage
 For educational purposes and for fun.
