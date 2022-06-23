@@ -2,7 +2,7 @@
 <h3 class="center-align">Sign Up</h3>
 <form id="signup-form" class="col s12 ">
 
-      <div class="row">
+    <div class="row">
         <div class="input-field col m12 s12">
             <label for="username-signup">Username</label>
             <input id="username-signup" type="text" class="validate">
@@ -16,7 +16,7 @@
         </div>
     </div>
 
- <div class="row">
+    <div class="row">
         <div class="input-field col m12 s12">
             <label for="password-signup">Password</label>
             <input id="password-signup" type="password" class="validate">
@@ -28,7 +28,20 @@
             <label for="native-language-signup">What is your native language?</label>
             <input id="native-language-signup" type="text" class="validate">
         </div>
-    
+
+    </div>
+
+
+
+    <div class="input-field col s12">
+        <select>
+            <option value="" disabled selected>Choose your option</option>
+            <option value="1">English</option>
+            <option value="2">Spanish</option>
+            <option value="3">Russian</option>
+            <option value="4">French</option>
+        </select>
+        <label>What is your native language?</label>
     </div>
 
 
@@ -37,13 +50,24 @@
             <label for="target-language-signup">What is your target language?</label>
             <input id="target-language-signup" type="text" class="validate">
         </div>
-    
     </div>
 
-  <div class="row">
-    <button class="btn waves-effect waves-light deep-purple darken-1
+    
+    <div class="input-field col s12">
+        <select>
+            <option value="" disabled selected>Choose your option</option>
+            <option value="1">English</option>
+            <option value="2">Spanish</option>
+            <option value="3">Russian</option>
+              <option value="4">French</option>
+        </select>
+        <label>What is your target language?</label>
+    </div>
+
+    <div class="row">
+        <button class="btn waves-effect waves-light deep-purple darken-1
  col s12" type="submit" name="action">Sign Up</button>
-  </div>
+    </div>
 
 </form>
 
@@ -51,3 +75,4 @@
 
 {{!-- Remember to give the absolute path, not the relative file path. --}}
 <script src="/javascript/signup.js"></script>
+<script src="/javascript/select.js"></script>
