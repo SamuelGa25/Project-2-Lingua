@@ -43,6 +43,10 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/welcome', (req, res) => {
+  res.render('welcome')
+});
+
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
